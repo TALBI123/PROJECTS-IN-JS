@@ -1,0 +1,264 @@
+* {
+  margin: 0;
+  padding: 0;
+  color: azure;
+  font: 15px cursive;
+  font-style: italic;
+  font-weight: 900;
+}
+body {
+  background-image: linear-gradient(to right, black, #002, #004, #005);
+  height: 100vh;
+}
+body::-webkit-scrollbar {
+  display: none;
+}
+.nav {
+  width: 100%;
+  height: 15%;
+  border-radius: 10px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 10;
+}
+.nav .logo {
+  margin-left: 40px;
+}
+ul {
+  list-style: none;
+  display: flex;
+  margin-right: 40px;
+}
+.humb {
+  display: none;
+}
+a {
+  text-decoration: none;
+}
+ul li a {
+  text-align: center;
+  border-radius: 10px;
+  display: inline-block;
+  width: 80%;
+  margin: 20px;
+  transition-duration: 0.6s;
+}
+ul li a:hover {
+  background-color: azure;
+  color: black;
+}
+.img {
+  width: 150px;
+  height: 150px;
+}
+.img > img {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  border: 3px solid azure;
+  transition-duration: 0.6s;
+  animation: translate 2s 0.4s linear infinite alternate;
+}
+.img img:hover {
+  box-shadow: 1px 1px 3px azure, -1px -1px 3px azure;
+}
+.content {
+  height: 85%;
+}
+.img {
+  margin-right: 20px;
+}
+.text {
+  margin-top: 5%;
+  margin-left: 10px;
+}
+.text > h1 {
+  width: 100%;
+  text-align: center;
+  margin-bottom: 10px;
+}
+.text span {
+  color: tomato;
+}
+::selection {
+  background-color: black;
+  color: white;
+}
+.link {
+  display: flex;
+  justify-content: space-evenly;
+  margin-top: 20px;
+}
+.link i {
+  font-size: 35px;
+  transition: transform 1s linear;
+}
+.link i:hover {
+  color: tomato;
+  transform: scale(1.3);
+}
+/* about me */
+@property --angle {
+  syntax: "<angle>";
+  initial-value: 0deg;
+  inherits: false;
+}
+section.about h1 {
+  text-align: center;
+  font-size: 25px;
+}
+section.about .text {
+  text-align: center;
+}
+section.about i {
+  font-size: 18px;
+}
+section.about .cards {
+  margin: 20px;
+  display: grid;
+  gap: 20px;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+}
+section.about .card {
+  background-image: linear-gradient(var(--angle), #008, #005, #003, #002);
+  height: 250px;
+  margin-top: 5%;
+  border-radius: 20px;
+  box-shadow: 1px 1px 5px black;
+  animation: rotation 10s linear infinite;
+  transition: scale 1s linear;
+}
+section.about .card:hover {
+  scale: 1.1;
+}
+section.about h2 {
+  margin-top: 10px;
+  text-align: center;
+}
+section.about span {
+  color: tomato;
+}
+/* conatct */
+section.contact :where(h1,h2){
+  text-align: center;
+}
+section.contact .cards {
+  margin: 13px;
+  margin-top: 40px;
+  display: grid;
+  gap: 20px;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+}
+
+section.contact  .card {
+  background-image: linear-gradient(var(--angle), #008, #005, #003, #002);
+  height: 250px;
+  margin-top: 5%;
+  border-radius: 20px;
+  box-shadow: 1px 1px 5px black;
+  animation: rotation 10s linear infinite;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  flex-direction: column;
+  transition: scale 1s linear;
+}
+section.contact .card:hover{
+  transform: scale(1.04);
+}
+section.contact  i[class*="phone"]{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+section.contact  i  h2.phone{
+  margin-top: 10px;
+}
+section.contact i{
+  font-size: 50px;
+}
+/* Framework */
+.flex_center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.position_center {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+@media Only screen and (max-width: 510px) {
+  .humb {
+    display: block;
+    cursor: pointer;
+  }
+
+  .content {
+    flex-direction: column;
+  }
+  .img {
+    margin-bottom: 10px;
+    margin-left: 10px;
+  }
+  ul {
+    display: none;
+  }
+  .nav {
+    justify-content: space-between;
+  }
+  .nav-bar {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 80vw;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    border-radius: 20px;
+    background-image: linear-gradient(var(--angle), black, #002, #004, #005);
+    box-shadow: 1px 1px 3px #004, 1px 1px 4px #002;
+    animation: rotation 10s linear infinite;
+    height: 76%;
+    opacity: 0;
+    z-index: -1;
+    transition-duration: 1s;
+  }
+  .nav-bar.active {
+    opacity: 1;
+    z-index: 2;
+  }
+  li a {
+    display: inline-block;
+    height: 50px;
+  }
+  li {
+    display: flex;
+    justify-content: center;
+  }
+  .logo {
+    margin-left: 30px;
+  }
+  .humb {
+    margin-right: 30px;
+  }
+}
+@keyframes rotation {
+  0% {
+    --angle: 0deg;
+  }
+  100% {
+    --angle: 360deg;
+  }
+}
+@keyframes translate {
+  100% {
+    transform: scale(1.1);
+    box-shadow: 1px 1px 3px azure, -1px -1px 3px azure;
+  }
+}
