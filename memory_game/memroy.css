@@ -1,0 +1,150 @@
+@import url("https://fonts.googleapis.com/css2?family=Luckiest+Guy&display=swap");
+:root{
+    --angles:0deg;
+}
+*{
+    margin: 0;
+    padding: 0;
+    font-family: "Luckiest Guy", cursive;
+    font-weight: 400;
+    font-style: normal;
+}
+body{
+    height: 100vh;
+    display: grid;
+    place-content: center;
+    background-color: #112;
+    position: relative;
+}
+.start{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    background-color: red;
+    height: 60px;
+    width: 170px;
+    color: azure;
+    border-radius: 5px;
+    display: grid;
+    place-content: center;
+    cursor: pointer;
+    transition: .6s height cubic-bezier(0.445, 0.05, 0.55, 0.95),.4s opacity cubic-bezier(0.445, 0.05, 0.55, 0.95);
+}
+.start.clicked{
+    height: 0;
+    opacity: 0;
+}
+.disabled{
+    display: none !important;
+    background-color: red;
+}
+.container{
+    height:330px;
+    width: 300px;
+    background-image: linear-gradient(var(--angles),rgba(144, 39, 20, 0.526),tomato);
+    border-radius: 5px;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    flex-direction: column;
+}
+.score{
+    width: 80%;
+    background: linear-gradient(to right, #ff416c, #ff4b2b);
+    border-radius: 5px;
+    padding: 10px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    font-size: 10px;
+    box-shadow: 0 4px 8px #00000075;
+}
+.referch{
+    width: 30%;
+    height: 30px;
+    background-color: beige;
+    border-radius: 5px;
+    color: #112;
+    display: grid;
+    place-content: center;
+    cursor: pointer;
+}
+.flips,.time{
+    position: relative;
+
+}
+.flips{}
+.flips::after,.time::after{
+    content: '';
+    position: absolute;
+    right: -10px;
+    width: 100px;
+    border-radius: 1px;
+    height: 100%;
+    border-right:2px rgb(24, 19, 19) solid ;
+}
+.cards
+{
+    display: grid;
+    grid-template-columns: repeat(4,1fr);
+    height: 70%;
+    width: 80%;
+}
+.card{
+    height: 45px;
+    width: 45px;
+    position: relative;
+    transform-style: preserve-3d;
+    transition: .9s transform cubic-bezier(0.445, 0.05, 0.55, 0.95); 
+    /* transform: rotateY(180deg); */
+}
+.card *{
+    position: absolute;
+    font-size: 25px;
+    background-color: var(--clr);
+    width: 100%;
+    height: 100%;
+    display: grid;
+    place-content: center;
+    backface-visibility: hidden;
+    cursor: pointer;
+    border-radius: 3px;
+    color: azure;
+    box-shadow: 0 4px 8px #00000075;
+}
+.back{
+    transform: rotateY(180deg);
+    width: 100%;
+    height: 100%;
+}
+.card.rotate{
+    transform: rotateY(180deg);
+}
+.back>.img{
+    width: 100%;
+    height: 100%;
+}
+.stop{
+    width: 50%;
+    height: 35px;
+    background-color: #112;
+    margin-bottom: 10px;
+    border-radius: 5px;
+    color: azure;
+    display: grid;
+    place-content: center;
+    cursor: pointer;
+}
+.stop:active{
+    background-color: #111122d9;
+}
+@property --angles {
+    syntax: '<angle>';
+    initial-value: 0deg;
+}
+@keyframes angle{
+    100%{
+        --angles:360deg;
+    }
+}
